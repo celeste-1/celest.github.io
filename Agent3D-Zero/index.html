@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Agent3D-Zero</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/codemirror.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/video_comparison.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="header" style="text-align: center; margin: auto;">
+        <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+            <h2 class="col-md-12 text-center" id="title">
+                <b>Agent3D-Zero</b> <br>
+                <br>
+                An Agent for 
+                Zero-shot 3D Understanding  <br>
+                <small>
+                    ECCV 2024
+                </small>
+            </h2>
+        </div>
+        <video id="materials" width="60%"  autoplay muted controls style="border: 2px solid #000;">
+            <source src="video/output_4.mp4" type="video/mp4" />
+        </video>
+        
+    </div>
+    <script>
+        document.getElementById('author-row').style.maxWidth = document.getElementById("title-row").clientWidth + 'px';
+    </script>
+    
+
+    <div class="container" id="main">
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract & Pipeline
+                </h3>
+                <p class="text-justify">
+                    The ability to understand and reason the 3D real world is a crucial milestone towards artificial general intelligence. 
+                    The current common practice is to finetune Large Language Models (LLMs) with 3D data and texts to enable 3D understanding. 
+                    Despite their effectiveness, these approaches are inherently limited by the scale and diversity of the available 3D data.
+                    Alternatively, in this work, we introduce Agent3D-Zero, an innovative 3D-aware agent framework addressing the 3D scene understanding in a zero-shot manner. 
+                    The essence of our approach centers on reconceptualizing the challenge of 3D scene perception as a process of understanding and synthesizing insights from multiple images, inspired by how our human beings attempt to understand 3D scenes.
+                    By consolidating this idea, we propose a novel way to make use of a Large Visual Language Model (VLM) via actively selecting and analyzing a series of viewpoints for 3D understanding.  
+                    Specifically, given an input 3D scene, Agent3D-Zero first processes a bird's-eye view image with custom-designed visual prompts, then iteratively chooses the next viewpoints to observe and summarize the underlying knowledge.
+                    A distinctive advantage of Agent3D-Zero is the introduction of novel visual prompts, which significantly unleash the VLMs' ability to identify the most informative viewpoints and thus facilitate observing 3D scenes. 
+                    Extensive experiments demonstrate the effectiveness of the proposed framework in understanding diverse and previously unseen 3D environments.
+                </p>
+            </div>
+        </div>
+
+        <image src="img/final_overview.png" class="img-responsive" alt="overview" width="60%"
+            style="max-height: 450px;margin:auto;">
+            <br>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <p class="text-justify">
+                        We initiate the process by overlaying grid lines and tick marks on the Bird's Eye View (BEV) images, 
+                        constituting the prompt along with a scene type description. 
+                        This prompt guides the Vision Language Model (VLM) to retrieve camera poses for images observing the 3D scene. 
+                        The lower section demonstrates the versatility of Agent3D-Zero, showcasing its proficiency in addressing various 3D reasoning and perception tasks through strategic prompting and tool utilization.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h3>
+                        Performance
+                    </h3>
+                    <div class="text-justify">
+                        Agent3D-Zero achieves state-of-the-art performance on ScanQA task. Here is the ranks in ScanQA test.
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <img src="img/scanqa_test.jpg" width="100%">
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+<!-- Default Statcounter code for Ponder
+https://dihuangdh.github.io/ponder -->
+<script type="text/javascript">
+    var sc_project=12946926; 
+    var sc_invisible=1; 
+    var sc_security="d7ea4aa9"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/12946926/0/d7ea4aa9/1/"
+    alt="Web Analytics"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
